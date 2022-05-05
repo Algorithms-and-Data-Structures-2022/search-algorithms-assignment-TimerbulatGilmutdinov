@@ -3,9 +3,19 @@
 namespace assignment {
 
   std::optional<std::pair<int, int>> two_sum(const std::vector<int>& data, int sum) {
-
-    // Tips: для создания пары (pair) используйте функцию std::make_pair
-
+    int i = 0;
+    int j = data.size() - 1;
+    while (i < j) {
+      if(data[i]+data[j]>sum){
+        j--;
+      }
+      if(data[i]+data[j]<sum){
+        i++;
+      }
+      if(data[i]+data[j]==sum){
+        return std::make_pair(i,j);
+      }
+    }
     return std::nullopt;
   }
 
